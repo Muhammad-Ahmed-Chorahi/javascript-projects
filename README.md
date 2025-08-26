@@ -9,7 +9,7 @@ This repository contains a collection of my JavaScript projects, organized in nu
 | Folder | Project Name           | Description                                      |
 |------- |-----------------------|--------------------------------------------------|
 | 01     | Drum Stick            | Play drum sounds using keyboard keys. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/01.drum-sticks/) |
-| 02     | JS Clock              | A stylish digital clock using JavaScript. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/02.fs-clock/) |
+| 02     | JS Clock              | A stylish digital clock using JavaScript. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/02.js-clock/) |
 | 03     | CSS Variables         | Demo of CSS variables for dynamic styling. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/03.css-variables/) |
 | 04     | Currency Converter    | Convert currencies with live rates. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/04.currency-converter/) |
 | 05     | Tic Tak Toe           | Classic Tic Tac Toe game in JS. [Live Demo](https://muhammad-ahmed-chorahi.github.io/javascript-projects/05.tic-tak-toe/) |
