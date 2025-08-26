@@ -1,0 +1,235 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page styling */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f4f4f4 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2vw;
+}
+
+/* Title styling */
+h1 {
+  color: #222;
+  margin: 2vw 0 1vw 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #b3b3b3;
+}
+
+/* Information section styling */
+.information {
+  margin-bottom: 2vw;
+  padding: 1vw 2vw;
+  border: 2px solid #333;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #fff 60%, #e0e7ff 100%);
+  width: 90vw;
+  max-width: 600px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.information ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.information li {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  margin: 0 1vw;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#x-wins::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('player-x.png') center/contain no-repeat;
+  vertical-align: middle;
+}
+#o-wins::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('player-o.png') center/contain no-repeat;
+  vertical-align: middle;
+}
+
+/* Turn indicator styling */
+#turn-indicator {
+  margin: 2vw 0;
+  padding: 1vw 2vw;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: bold;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #fff 70%, #e0e7ff 100%);
+  border: 2px solid #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  width: 90vw;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Container for game board */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  border: 2px solid #333;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #fff 60%, #e0e7ff 100%);
+  padding: 2vw;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  width: 90vw;
+  max-width: 600px;
+}
+
+/* Game grid styling */
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+/* Individual box styling */
+.box {
+  border: 2px solid #333;
+  background: linear-gradient(135deg, #007bff 70%, #0056b3 100%);
+  border-radius: 1rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  min-width: 80px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  position: relative;
+  overflow: hidden;
+}
+
+.box:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0056b3 70%, #007bff 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+.box:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.box:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* If you want to show images for X/O instead of text, use this: */
+.box[data-value="X"] {
+  background: linear-gradient(135deg, #ff4e50 70%, #f9d423 100%);
+}
+.box[data-value="O"] {
+  background: linear-gradient(135deg, #43cea2 70%, #185a9d 100%);
+}
+.box[data-value="X"]::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 60%;
+  background: url('player-x.png') center/contain no-repeat;
+}
+.box[data-value="O"]::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 60%;
+  background: url('player-o.png') center/contain no-repeat;
+}
+
+/* Button container styling */
+.btn {
+  margin-top: 2vw;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  width: 90vw;
+  max-width: 600px;
+}
+
+/* Button styling */
+.btn button {
+  padding: 0.8em 2em;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border: none;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #007bff 70%, #0056b3 100%);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  transition: background 0.3s, transform 0.1s;
+}
+
+.btn button:hover {
+  background: linear-gradient(90deg, #0056b3 70%, #007bff 100%);
+  transform: scale(1.05);
+}
+
+.btn button:active {
+  transform: scale(0.97);
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .information, .container, .btn, #turn-indicator {
+    max-width: 98vw;
+    width: 98vw;
+    padding: 2vw 1vw;
+  }
+  .game {
+    max-width: 98vw;
+    max-height: 98vw;
+    gap: 3vw;
+  }
+  .box {
+    min-width: 60px;
+    min-height: 60px;
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .box {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 2rem;
+  }
+}
